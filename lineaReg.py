@@ -17,8 +17,10 @@ def mean(array):
     return mean / len(array)
 
 
-def slope(mX, mY, arrayX, arrayY):
+def slope(arrayX, arrayY):
     isEmpty(arrayX)
+    mX = mean(arrayX)
+    mY = mean(arrayY)
     deviation = 0
     sumofDeviationXsquared = 0
     for i in range(len(arrayX)):
@@ -51,10 +53,8 @@ Y = []
 append_elements_to_lists(X, Y)
 if len(X) == len(Y):
 
-    meanX = mean(X)
-    meanY = mean(Y)
-
-    inter = intercept(meanX, meanY, slope(meanX, meanY, X, Y))
+    inter = intercept(mean(X), mean(Y), slope(X, Y))
+    print(inter)
 else:
     print("Parameterr size of X and Y aint equal")
     exit()
